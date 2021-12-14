@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <ng-container *ngFor="let product of listProducts">
+        <ng-container *ngIf="product.id===productId">
+            <div class="row p-5">
+                <div class="col">
+                    <img [src]="product.image" alt="">
+                    <div class="row mt-4">
+                        <h4>RECOMENDACIONES</h4>
+                    </div>
+                    <div class="row mt-4">
+                        <ng-container *ngFor="let recomendation of product.recomendations">
+                            <div class="col-md-3 col-12 mt-2 text-center">
+                                <div class="card" style="border-color: black; border-radius: 0%;">
+                                    <h5>{{recomendation}}</h5>
+                                </div>
+                            </div>
+                            
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="col mt-2">
+                    <div class="row">
+                        <div class="col">
+                            <h4>{{product.title}}</h4>
+                        </div>
+                        <div class="col text-end">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <h4>{{product.Subtitle}}</h4>
+                    </div>
+                    <div class="row mt-4">
+                        {{product.description}}
+                    </div>
+                    <div class="row mt-4" style="color: blue;">
+                        <h4>{{product.price}}</h4>
+                    </div>
+                    <div class="row mt-4">
+                        <h5>Cantidad</h5>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-3 text-start">
+                            <form [formGroup]="productForm">
+                            <input min="0" [value] = "cantidad" formControlName="valor" type="number"/>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-6 text-start">
+                            <button type="button" style="border-color: black; border-radius: 0%;" class="btn btn-light px-5" (click)="addCarrito(product.id,valor)">Agregar a la bolsa</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+    
+</div>

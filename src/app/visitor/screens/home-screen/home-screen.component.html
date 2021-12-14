@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="row justify-content-center mx-3">
+<ng-container *ngFor="let product of listProduct">
+        <div class="col-12 col-sm-12 col-md-4 mb-4 col-lg-3 text-start">
+    <div class="card" style="border-color: black;">
+        <img [src]="product.image" class="card-img-top img-fluid p-3" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{product.title}}</h5>
+          <p class="card-text mb-2">{{product.Subtitle}}</p>
+            <div class="row ps-2">
+                <div class="col-1 px-0">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="col-1 px-0">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="col-1 px-0">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="col-1 px-0">
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="col-1 px-0">
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            <div class="row mt-3" style="justify-content: center">
+                <div class="col-6 text-center">
+                    <button type="button" style="border-color: black;" class="btn btn-light px-5" (click)="goToViewProduct(product.id)">ver</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h1>{{product.price}}</h1>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</ng-container>
+</div>
